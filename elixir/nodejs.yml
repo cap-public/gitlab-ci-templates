@@ -1,0 +1,21 @@
+nodejs:
+  image: mhart/alpine-node
+  interruptible: true
+  stage: test
+  artifacts:
+    paths:
+      - assets/node_modules
+      - assets/.npmcache
+    expire_in: 1 day
+  cache:
+    key: nodejs_test
+    paths:
+      - assets/node_modules/
+      - assets/.npmcache
+  before_script:
+    - cd assets
+    - npm config set cache .npmcache
+    - export PATH=$PWD/node_modules/.bin:$PATH
+    - npm install
+  script:
+    - npm run deploy
