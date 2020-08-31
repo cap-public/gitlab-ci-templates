@@ -1,0 +1,36 @@
+pages:
+  image: ruby:alpine
+  interruptible: true
+  stage: package
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  cache: {}
+  dependencies:
+    - css_lint
+    - mix
+  only:
+    - master
+  before_script:
+    - apk add curl jq
+    - mkdir -p gems
+    - gem install --install-dir ./gems inch-badge
+  script:
+    - mkdir -p doc
+    - mkdir -p cover
+    - 'cat doc/coverage | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U" | cat > doc/coverage'
+    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage | tr "\n" " ")
+    - rm doc/coverage
+    - 'curl -X POST "https://upload.imagekit.io/api/v1/files/upload"
+       -u "$IMAGEKIT_API_KEY"
+       -F "file=@doc.svg;type=image/svg+xml"
+       -F "fileName=doc-coverage.svg"
+       -F "useUniqueFileName=false"
+       -F "folder=dev-reporter"'
+    - 'curl "https://api.imagekit.io/v1/files/purge"
+       -u "$IMAGEKIT_API_KEY"
+       -d "url=https://ik.imagekit.io/captech/dev-reporter/doc-coverage.svg"'
+    - mv doc/ public/
+    - mv cover/ public/coverage/
+
