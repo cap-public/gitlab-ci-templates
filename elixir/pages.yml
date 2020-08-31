@@ -27,10 +27,10 @@ pages:
        -F "file=@doc.svg;type=image/svg+xml"
        -F "fileName=doc-coverage.svg"
        -F "useUniqueFileName=false"
-       -F "folder=dev-reporter"'
+       -F "folder=$CI_PROJECT_NAME"'
     - 'curl "https://api.imagekit.io/v1/files/purge"
        -u "$IMAGEKIT_API_KEY"
-       -d "url=https://ik.imagekit.io/captech/dev-reporter/doc-coverage.svg"'
+       -d "url=https://ik.imagekit.io/captech/$CI_PROJECT_NAME/doc-coverage.svg"'
     - mv doc/ public/
     - mv cover/ public/coverage/
 
