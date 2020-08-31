@@ -20,7 +20,7 @@ pages:
     - mkdir -p doc
     - mkdir -p cover
     - 'cat doc/coverage | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U" | cat > doc/coverage'
-    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage | tr "\n" " ")
+    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage)
     - rm doc/coverage
     - 'curl -X POST "https://upload.imagekit.io/api/v1/files/upload"
        -u "$IMAGEKIT_API_KEY"
