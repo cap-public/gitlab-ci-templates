@@ -1,0 +1,26 @@
+mix:
+  image: bitwalker/alpine-elixir-phoenix:latest
+  interruptible: true
+  stage: test
+  services:
+    - postgres:latest
+  artifacts:
+    paths:
+      - doc/
+      - cover/
+    expire_in: 1 day
+  cache:
+    key: mix_test
+    paths:
+      - deps/
+      - _build/
+  before_script:
+    - mix local.hex --force
+    - mix local.rebar --force
+    - mix deps.get --only test
+    - mix ecto.create
+    - mix ecto.migrate
+  script:
+    - mix coveralls.html
+    - mix docs
+    - 'mix inch --format json | cat > doc/coverage'
