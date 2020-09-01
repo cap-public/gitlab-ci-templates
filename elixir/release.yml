@@ -1,11 +1,10 @@
-
 release:
   image: elixir:slim
   interruptible: true
   stage: package
   artifacts:
     paths:
-      - "_build/prod/rel/$CI_PROJECT_NAME"
+      - "_build/prod/rel/$BUILD_PATH"
   cache:
     key: release_package
     paths:
