@@ -23,4 +23,4 @@ mix:
   script:
     - mix coveralls.html
     - mix docs
-    - 'mix inch --format json | cat > doc/coverage'
+    - 'mix inch --format json | cat > doc/coverage.json'

@@ -19,10 +19,11 @@ pages:
   script:
     - mkdir -p doc
     - mkdir -p cover
-    - 'cat doc/coverage | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U" | cat > doc/coverage'
-    - cat doc/coverage
-    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage | tr "\n" "\n")
-    - rm doc/coverage
+    - 'head doc/coverage.json'
+    - 'cat doc/coverage.json | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U"'
+    - 'cat doc/coverage.json | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U" | cat > doc/coverage.json'
+    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage.json | tr "\n" "\n")
+    - rm doc/coverage.json
     - 'curl -X POST "https://upload.imagekit.io/api/v1/files/upload"
        -u "$IMAGEKIT_API_KEY"
        -F "file=@doc.svg;type=image/svg+xml"
