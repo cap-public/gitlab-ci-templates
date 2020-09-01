@@ -19,8 +19,9 @@ pages:
   script:
     - mkdir -p doc
     - mkdir -p cover
-    - 'cat doc/coverage.json | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U" | cat > doc/coverage.json'
-    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage.json)
+    - cat doc/coverage.json | jq ".grade_distribution.A, .grade_distribution.B, .grade_distribution.C, .grade_distribution.U" | tr "\n" " " | cat > doc/coverage
+    - cat doc/coverage
+    - GEM_HOME=./gems ./gems/bin/inch-badge --flat doc.svg $(cat doc/coverage)
     - 'curl -X POST "https://upload.imagekit.io/api/v1/files/upload"
        -u "$IMAGEKIT_API_KEY"
        -F "file=@doc.svg;type=image/svg+xml"
@@ -30,6 +31,8 @@ pages:
     - 'curl "https://api.imagekit.io/v1/files/purge"
        -u "$IMAGEKIT_API_KEY"
        -d "url=https://ik.imagekit.io/captech/$CI_PROJECT_NAME/doc-coverage.svg"'
+    - rm doc/coverage.json
+    - rm doc/coverage
     - mv doc/ public/
     - mv cover/ public/coverage/
 
