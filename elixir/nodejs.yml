@@ -14,7 +14,6 @@ nodejs:
       - assets/.npmcache
   before_script:
     - cd assets
-    - npm config set cache .npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - npm install
   script:

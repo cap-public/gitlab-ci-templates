@@ -1,5 +1,5 @@
 mix:
-  image: bitwalker/alpine-elixir-phoenix:latest
+  image: registry.gitlab.com/capuk/docker/phoenix:latest
   interruptible: true
   stage: test
   services:
@@ -15,8 +15,6 @@ mix:
       - deps/
       - _build/
   before_script:
-    - mix local.hex --force
-    - mix local.rebar --force
     - mix deps.get --only test
     - mix ecto.create
     - mix ecto.migrate

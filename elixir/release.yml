@@ -1,5 +1,5 @@
 release:
-  image: elixir:slim
+  image: registry.gitlab.com/capuk/docker/phoenix:latest
   interruptible: true
   stage: package
   artifacts:
@@ -17,14 +17,6 @@ release:
   only:
     - master
   before_script:
-    - rm -f /etc/apt/apt.conf.d/docker-clean
-    - mkdir -p .apt && mkdir -p /var/cache/apt/archives && mount --bind .apt /var/cache/apt/archives/
-    - apt-get -qq update
-    - apt-get -qq install -y curl software-properties-common
-    - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    - apt-get -qq install -y git build-essential libssl-dev nodejs
-    - mix local.hex --force
-    - mix local.rebar --force
     - npm config set cache .npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - export RELEASE_LEVEL=production
