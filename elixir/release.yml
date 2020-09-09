@@ -8,16 +8,14 @@ release:
   cache:
     key: release_package
     paths:
-      - .apt
       - deps/
       - _build/
   dependencies:
     - nodejs
-    - mix
   only:
     - master
   before_script:
-    - npm config set cache .npmcache
+    - npm config set cache assets/.npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - export RELEASE_LEVEL=production
     - export RELEASE_HASH=${CI_COMMIT_SHA:0:8}
