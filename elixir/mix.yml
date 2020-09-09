@@ -20,5 +20,5 @@ mix:
     - mix ecto.migrate
   script:
     - mix coveralls.html
-    - mix docs
+    - mix docs -f html
     - 'mix inch --format json | cat > doc/coverage.json'
