@@ -1,5 +1,5 @@
 pages:
-  image: ruby:alpine
+  image: alpine:latest
   interruptible: true
   stage: package
   artifacts:
