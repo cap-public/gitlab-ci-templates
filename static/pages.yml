@@ -1,0 +1,14 @@
+pages:
+  image: ruby:alpine
+  interruptible: true
+  stage: package
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  cache: {}
+  only:
+    - master
+  script:
+    - mkdir -p public
+    - mv *.* public/
