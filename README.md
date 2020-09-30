@@ -6,7 +6,7 @@ Just a friendly reminder: these are open-source and public, so keep secrets out!
 
 ## Usage
 
-In your `.gitlab-ci.yml` file, put the following:
+In your `.gitlab-ci.yml` file, add the following:
 
 ```yaml
 include:
