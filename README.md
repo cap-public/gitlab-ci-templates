@@ -17,8 +17,8 @@ stages:
   - package
 ```
 
-Make sure to include the stages from the includes - e.g. for [`elixir/mix_no_db.yml`](/elixir/mix_no_db/yml) you should
-add `test` to `stages:`. In the example above, `package` was included as the `pages` job runs in that stage.
+Make sure to include the stages from the includes - e.g. for [`elixir/mix.yml`](/elixir/mix.yml) you should add `test`
+to `stages:`. In the example above, `package` was included as the `pages` job runs in that stage.
 
 You can see example usage [here](https://gitlab.com/cap-public/packages/gitlab-header-auth/-/blob/master/.gitlab-ci.yml).
 
