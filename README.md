@@ -4,7 +4,7 @@ We use these CI templates to reduce duplication and the maintenance burden for p
 
 Just a friendly reminder: these are open-source and public, *so keep secrets out!*. The best thing to do is add them as
 [CI variables](https://gitlab.com/help/ci/variables/README#create-a-custom-variable-in-the-ui), like the
-`$IMAGEKIT_API_KEY` used in the [`pages.yml`](elixir/pages.yml#L30) template.
+`$IMAGEKIT_API_KEY` used in the [`pages.yml`](elixir/pages.yml#L34) template.
 
 ## Usage
 

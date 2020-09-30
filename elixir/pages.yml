@@ -1,3 +1,7 @@
+#-------------------------------------------------------------------------------------------------------------------#
+# NOTE: If this file is ever updated, please make sure the README.md file is also updated to reflect which line the #
+# `$IMAGEKIT_API_KEY` variable is on                                                                                #
+#-------------------------------------------------------------------------------------------------------------------#
 pages:
   image: ruby:alpine
   interruptible: true
