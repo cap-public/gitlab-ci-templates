@@ -1,0 +1,21 @@
+mix:
+  image: registry.gitlab.com/capuk/docker/phoenix:latest
+  interruptible: true
+  stage: test
+  artifacts:
+    paths:
+      - doc/
+      - cover/
+    expire_in: 1 day
+  cache:
+    key: mix_test
+    paths:
+      - deps/
+      - _build/
+  before_script:
+    - mix deps.get --only test
+  script:
+    - mix coveralls.html
+    - mix docs -f html
+    - 'mix inch --format json | cat > doc/coverage.json'
+
