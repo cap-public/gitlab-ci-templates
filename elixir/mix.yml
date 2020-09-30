@@ -1,5 +1,5 @@
 include:
-  - project: 'capuk/utilities/ci-templates'
+  - project: 'cap-public/ci/gitlab-ci-templates'
     file: '/elixir/mix.yml'
 
 mix:

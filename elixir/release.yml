@@ -1,5 +1,5 @@
 release:
-  image: registry.gitlab.com/capuk/docker/phoenix:latest
+  image: registry.gitlab.com/cap-public/ci/phoenix-docker:latest
   interruptible: true
   stage: package
   artifacts:
