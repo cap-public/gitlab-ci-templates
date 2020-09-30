@@ -1,6 +1,6 @@
 include:
   - project: 'cap-public/ci/gitlab-ci-templates'
-    file: '/elixir/mix.yml'
+    file: '/elixir/mix_no_db.yml'
 
 mix:
   services:
