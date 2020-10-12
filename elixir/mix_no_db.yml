@@ -1,4 +1,4 @@
-mix:
+elixir:
   image: registry.gitlab.com/cap-public/ci/phoenix-docker:latest
   interruptible: true
   stage: test
@@ -14,6 +14,8 @@ mix:
       - _build/
   before_script:
     - mix deps.get --only test
+  except:
+    - schedules
   script:
     - mix format --check-formatted --dry-run
     - mix coveralls.html

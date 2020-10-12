@@ -9,6 +9,8 @@ pages:
   cache: {}
   only:
     - master
+  except:
+    - schedules
   script:
     - mkdir -p public
     - mv *.* public/
