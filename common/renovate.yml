@@ -1,4 +1,5 @@
 renovate:
+  stage: check
   variables:
     RENOVATE_GIT_AUTHOR: "cerebron <it@capuk.org>"
     RENOVATE_DRY_RUN: "false"
