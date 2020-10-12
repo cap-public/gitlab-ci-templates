@@ -15,6 +15,7 @@ mix:
   before_script:
     - mix deps.get --only test
   script:
+    - mix format --check-formatted --dry-run
     - mix coveralls.html
     - mix docs -f html
     - 'mix inch --format json | cat > doc/coverage.json'
