@@ -1,4 +1,4 @@
-elixir:
+mix:
   image: registry.gitlab.com/cap-public/ci/phoenix-docker:latest
   interruptible: true
   stage: test

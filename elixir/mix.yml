@@ -2,7 +2,7 @@ include:
   - project: 'cap-public/ci/gitlab-ci-templates'
     file: '/elixir/mix_no_db.yml'
 
-elixir:
+mix:
   services:
     - postgres:latest
   before_script:
