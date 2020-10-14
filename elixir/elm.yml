@@ -1,0 +1,18 @@
+include:
+  - remote: 'https://raw.githubusercontent.com/cap-public/gitlab-ci-templates/master/elixir/mix_no_db.yml'
+
+nodejs:
+  cache:
+    key: nodejs_elm_test
+    paths:
+      - assets/elm/elm-stuff
+      - assets/node_modules/
+      - assets/.npmcache
+      - assets/.npmcache
+  before_script:
+    - npm install -g elm
+    - cd assets
+    - npm config set cache .npmcache
+    - export PATH=$PWD/node_modules/.bin:$PATH
+    - npm install
+
