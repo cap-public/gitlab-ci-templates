@@ -1,5 +1,5 @@
 include:
-  - remote: 'https://raw.githubusercontent.com/cap-public/gitlab-ci-templates/master/elixir/mix_no_db.yml'
+  - remote: 'https://raw.githubusercontent.com/cap-public/gitlab-ci-templates/master/elixir/nodejs.yml'
 
 nodejs:
   cache:
