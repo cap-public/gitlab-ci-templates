@@ -8,7 +8,6 @@ nodejs:
       - assets/elm/elm-stuff
       - assets/node_modules/
       - assets/.npmcache
-      - assets/.npmcache
   before_script:
     - npm install -g elm
     - cd assets
