@@ -9,9 +9,11 @@ nodejs:
       - assets/node_modules/
       - assets/.npmcache
   before_script:
-    - npm install -g elm
     - cd assets
     - npm config set cache .npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - npm install
-
+    - wget https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
+    - gunzip binary-for-linux-64-bit.gz
+    - mv ./binary-for-linux-64-bit ./node_modules/.bin/elm
+    - chmod +x ./node_modules/.bin/elm
