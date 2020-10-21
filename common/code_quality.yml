@@ -3,6 +3,7 @@ include:
 
 code_quality:
   stage: check
+  interruptible: true
   # deactivate DinD Service
   services:
   script:
