@@ -2,6 +2,6 @@ danger:
   stage: check
   image: ackee/danger-js:latest
   script:
-    - danger ci
+    - danger ci --failOnErrors
   only:
     - merge_requests
