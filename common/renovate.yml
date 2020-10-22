@@ -7,6 +7,8 @@ renovate:
   image:
     name: renovate/renovate
     entrypoint: [""]
+  before_script:
+    - mkdir renovate
   script:
     - >
       node /usr/src/app/dist/renovate.js
@@ -15,6 +17,11 @@ renovate:
       --git-author "${RENOVATE_GIT_AUTHOR}"
       --dry-run "${RENOVATE_DRY_RUN}"
       --log-level "${RENOVATE_LOG_LEVEL}"
+      --base-dir "${CI_PROJECT_PATH}/renovate"
       "${CI_PROJECT_PATH}"
+  cache:
+    key: "renovate"
+    paths:
+      - renovate/
   only:
     - schedules
