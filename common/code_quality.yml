@@ -8,7 +8,9 @@ code_quality:
   services:
   script:
     - docker run
-        --tty --rm
+        --tty
+        --rm
+        --label "codeclimate"
         --env SOURCE_CODE="$CI_PROJECT_DIR"
         --volume $CI_PROJECT_DIR:/code
         --volume /var/run/docker.sock:/var/run/docker.sock
