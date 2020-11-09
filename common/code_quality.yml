@@ -15,6 +15,9 @@ code_quality:
         --volume $CI_PROJECT_DIR:/code
         --volume /var/run/docker.sock:/var/run/docker.sock
         "$CODE_QUALITY_IMAGE" /code
+  after_script:
+    # Despite using `docker run --rm`, so code climate images still remain, so remove them
+    - docker ps -a | grep "codeclimate" | awk '{print $1}' | xargs docker rm
   artifacts:
     expose_as: 'Code Quality Report'
     paths: [gl-code-quality-report.json]
