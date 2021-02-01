@@ -34,9 +34,10 @@ pages:
        -F "folder=$CI_PROJECT_NAME"'
     - 'curl "https://api.imagekit.io/v1/files/purge"
        -u "$IMAGEKIT_API_KEY"
-       -d "url=https://ik.imagekit.io/captech/$CI_PROJECT_NAME/doc-coverage.svg"'
+       -d "url=https://ik.imagekit.io/$IMAGEKIT_ID/$CI_PROJECT_NAME/doc-coverage.svg"'
     - rm doc/coverage.json
     - rm doc/coverage
     - mv doc/ public/
     - mv cover/ public/coverage/
-
+  variables:
+    IMAGEKIT_ID: "captech"
