@@ -8,7 +8,7 @@ renovate:
     name: renovate/renovate
     entrypoint: [""]
   before_script:
-    - mkdir renovate
+    - mkdir -p renovate
   script:
     - >
       node /usr/src/app/dist/renovate.js
