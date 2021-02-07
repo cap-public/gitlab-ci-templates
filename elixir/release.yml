@@ -16,8 +16,9 @@ release:
     - master
   except:
     - schedules
+  variables:
+    npm_config_cache: "$CI_PROJECT_DIR/.npm"
   before_script:
-    - npm config set cache assets/.npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - export RELEASE_LEVEL=production
     - export RELEASE_HASH=${CI_COMMIT_SHA:0:8}
