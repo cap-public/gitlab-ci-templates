@@ -7,10 +7,9 @@ nodejs:
     paths:
       - assets/elm/elm-stuff
       - assets/node_modules/
-      - assets/.npmcache
+      - .npm
   before_script:
     - cd assets
-    - npm config set cache .npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - npm install
     - wget https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz

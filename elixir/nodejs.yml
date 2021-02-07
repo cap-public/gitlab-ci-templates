@@ -5,16 +5,17 @@ nodejs:
   artifacts:
     paths:
       - assets/node_modules
-      - assets/.npmcache
+      - .npm
     expire_in: 1 day
   cache:
     key: nodejs_test
     paths:
       - assets/node_modules/
-      - assets/.npmcache
+      - .npm
+  variables:
+    npm_config_cache: "$CI_PROJECT_DIR/.npm"
   before_script:
     - cd assets
-    - npm config set cache .npmcache
     - export PATH=$PWD/node_modules/.bin:$PATH
     - npm install
   except:
