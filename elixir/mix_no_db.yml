@@ -21,4 +21,3 @@ mix:
     - mix coveralls.html
     - mix docs -f html
     - 'mix inch --format json | cat > doc/coverage.json'
-
