@@ -22,7 +22,8 @@ code_quality:
     expose_as: 'Code Quality Report'
     paths: [gl-code-quality-report.json]
   rules:
-    - if: '$CODE_QUALITY_DISABLED'
+    - if: $CODE_QUALITY_DISABLED
       when: never
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: $CI_MERGE_REQUEST_IID
+    - if: $CI_COMMIT_REF_PROTECTED
+    - when: manual
