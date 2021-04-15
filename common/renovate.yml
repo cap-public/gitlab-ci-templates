@@ -8,7 +8,6 @@ renovate:
     name: renovate/renovate
     entrypoint: [""]
   before_script:
-    - ls -lah
     - mkdir -p renovate
   script:
     - >
