@@ -16,7 +16,7 @@ code_quality:
         --volume /var/run/docker.sock:/var/run/docker.sock
         "$CODE_QUALITY_IMAGE" /code
   after_script:
-    # Despite using `docker run --rm`, so code climate images still remain, so remove them
+    # Despite using `docker run --rm`, some code climate images still remain, so remove them
     - docker ps -a -f status=exited | grep "codeclimate" | awk '{print $1}' | xargs docker rm
   artifacts:
     expose_as: 'Code Quality Report'
