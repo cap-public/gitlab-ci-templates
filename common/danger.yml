@@ -5,3 +5,4 @@ danger:
     - danger ci --failOnErrors
   only:
     - merge_requests
+    - $DANGER_ONLY
