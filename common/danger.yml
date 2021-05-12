@@ -3,7 +3,5 @@ danger:
   image: ackee/danger-js:latest
   script:
     - danger ci --failOnErrors
-  rules:
-  - if: $DANGER_ONLY
-  - if: $CI_MERGE_REQUEST_IID
-  - when: never
+  only:
+    - merge_requests
