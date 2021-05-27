@@ -16,7 +16,6 @@ renovate:
       --endpoint "${CI_API_V4_URL}"
       --git-author "${RENOVATE_GIT_AUTHOR}"
       --dry-run "${RENOVATE_DRY_RUN}"
-      --log-level "${RENOVATE_LOG_LEVEL}"
       --base-dir "${CI_PROJECT_PATH}/renovate"
       "${CI_PROJECT_PATH}"
   cache:
