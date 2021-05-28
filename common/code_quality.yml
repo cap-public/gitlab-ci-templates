@@ -1,3 +1,4 @@
+# The Gitlab template for creating the code quality job
 include:
   - template: Code-Quality.gitlab-ci.yml
 

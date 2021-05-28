@@ -2,6 +2,7 @@ danger:
   stage: check
   image: ackee/danger-js:latest
   script:
+    # Make sure that if the danger script errors then the job fails (the default is to succeed)
     - danger ci --failOnErrors
   only:
     - merge_requests
